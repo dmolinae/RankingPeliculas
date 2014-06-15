@@ -25,6 +25,8 @@ class Peliculas(QtGui.QMainWindow):
 		self.setFixedSize(576,348)
 		self.conectar_acciones()
 		self.ui.info.setVisible(False)
+		self.messageDialog = QtGui.QMessageBox(self)
+		self.messageDialog.setWindowTitle("Error")
 
 	def conectar_acciones(self):
 		self.ui.btn_subir.clicked.connect(self.action_btn_subir)
@@ -83,8 +85,6 @@ class Peliculas(QtGui.QMainWindow):
 		model = self.ui.tabla.model()
 		index = self.ui.tabla.currentIndex()
 		if index.row()==-1:
-			self.messageDialog = QtGui.QMessageBox(self)
-			self.messageDialog.setWindowTitle("Error")
 			self.messageDialog.setText(u"Debe seleccionar una película.")
 			self.messageDialog.exec_()
 
@@ -97,7 +97,6 @@ class Peliculas(QtGui.QMainWindow):
 			elif(accion == "bajar"):
 				new_rank = old_rank+1
 			if(new_rank == 0):
-				#self.errorMessageDialog = QtGui.QErrorMessage(self)
 				self.messageDialog.setText(u"No se puede subir más el rank.")
 				self.messageDialog.exec_()
 			else:
