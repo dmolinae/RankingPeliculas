@@ -31,8 +31,6 @@ class Peliculas(QtGui.QMainWindow):
 	def conectar_acciones(self):
 		self.ui.btn_subir.clicked.connect(self.action_btn_subir)
 		self.ui.btn_bajar.clicked.connect(self.action_btn_bajar)
-		#self.ui.tabla.pressed.connect(self.tabla_cell_selected)
-		#self.ui.tabla.activated.connect(self.tabla_cell_selected)
 
 	def load_data_tabla(self):
 		'''Método para mostrar los datos de la tabla, muestra todos los elementos de la tabla "movies" de la base de datos'''
